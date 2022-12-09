@@ -1,6 +1,82 @@
-import React from 'react';
+import React , {useState , useEffect} from 'react';
+import axios from 'axios';
 import "./banner.css"
 const Bannar = () => {
+
+
+    const [trackData, setTrackData] = useState("")
+    
+    let token;
+    function getTrackData() {
+        let apiData= {
+            grant_type :'client_credentials',
+           client_id :process.env.REACT_APP_FEDEX_AUTH_CLIENT_ID,
+           client_secret :process.env.REACT_APP_FEDEX_AUTH_CLIENT_SECRET
+        }
+        axios({
+            url:"/oauth/token",
+            data:apiData,
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            }
+        }).then((res)=>{
+            token = res.data.access_token
+            let trackNum = document.getElementById("login_input").value
+            let getPackage = {
+                includeDetailedScans: true,
+                trackingInfo: [
+                  {
+                    trackingNumberInfo: {
+                      trackingNumber: trackNum,
+                    }
+                  }
+                ]
+              }
+            var trackData = JSON.stringify(getPackage);
+            axios({
+                url:"/track/v1/trackingnumbers",
+                data:trackData,
+                method:'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization' : 'Bearer '+token
+                }
+            }).then((res)=>{
+                let obj = res.data.output.completeTrackResults[0].trackResults[0];
+                if(obj.error) {
+                    setTrackData(obj.error.message)
+                } else {
+                    console.log(obj)
+                    let data = {
+                        packageNumber:obj.trackingNumberInfo.trackingNumber,
+                        shippedFrom:obj.shipperInformation.address.city+ ", "+ obj.shipperInformation.address.stateOrProvinceCode + ", "+obj.shipperInformation.address.countryName,
+                        serviceDetail:obj.serviceDetail.description,
+                        packageAt: obj.latestStatusDetail.description,
+                        packageStatus: obj.latestStatusDetail.statusByLocale,
+                        packageLocation: obj.latestStatusDetail.scanLocation.city+", "+obj.latestStatusDetail.scanLocation.stateOrProvinceCode+", "+obj.latestStatusDetail.scanLocation.countryName ,
+                    }
+                    const renderData = ()=>{
+                        return Object.keys(data).map((key,index)=>{
+                            return(
+                                <div key={index}>
+                                    <strong>{key}: </strong>
+                                    <span>{data[key]}</span>
+                                </div>
+                            )
+                        })
+                    }
+                    setTrackData(renderData)
+                }
+            }).catch((error)=>{
+                console.log(error);
+            })
+ 
+        })
+
+    }
+        
+
     return (
         <div>
             <div className="bg-background-dark-gray">
@@ -13,12 +89,13 @@ const Bannar = () => {
                         >  <div className='text-center font-bold'>
                         <h3 className='mb-3'>Track Your orders Here</h3>
                         <div class="track_form">
-<input  id="login_input" maxlength="12" class="form-control tracking_field" placeholder="Invoice Number" type="text" name="invoice" required=""/>
+<input  id="login_input" maxlength="16" class="form-control tracking_field" placeholder="Invoice Number" type="text" name="invoice" required=""/>
 <input autocomplete="off" type="hidden" name="auth" value="0"/>
-<button class="tracking_btn" type="submit">
+<button class="tracking_btn" type="submit" onClick={getTrackData}>
 TRACK NOW
 </button>
 </div>
+                                    {trackData && <h1>{trackData}</h1>}
                             <div className="bg-cover bg-center undefined">
                                 <div className="relative h-full max-w-6xl m-auto px-6 sm:px-12">
                               

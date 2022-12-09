@@ -17,6 +17,25 @@ import Footer from "./Components/Shared/Footer/Footer";
 import Navbar from "./Components/Shared/Navbar/Navbar";
 
 function App() {
+
+  var data = JSON.stringify("");
+  
+  var xhr = new XMLHttpRequest();
+  xhr.withCredentials = true;
+  
+  xhr.addEventListener("readystatechange", function () {
+    if (this.readyState === 4) {
+      console.log(this.responseText);
+    }
+  });
+  
+  xhr.open("POST", "https://apis-sandbox.fedex.com/track/v1/trackingnumbers");
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.setRequestHeader("X-locale", "en_US");
+  xhr.setRequestHeader("Authorization", "Bearer ");
+  xhr.send(data);
+  
+
   return (
     <div style={{ fontFamily: 'Montserrat, sans-serif' }} >
       <Navbar  ></Navbar>

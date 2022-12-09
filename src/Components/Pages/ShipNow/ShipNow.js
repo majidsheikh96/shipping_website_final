@@ -42,6 +42,7 @@ const ShipNow = () => {
                         <hr className="absolute border-gray-3 w-[90%] top-[16px] md:top-[20px] left-0 right-0 mx-auto" />
                     </div>
                 </div>
+                {}
                 <div className="text-center mb-4 md:mb-6">
                     <p id="step-header" className="text-2xl md:text-3xl font-bold">Sender’s Particulars</p>
                     <p className="text-sm">(Point of contact for packing and billing)</p>
