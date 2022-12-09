@@ -2,6 +2,7 @@ import "@fontsource/montserrat";
 import { Route, Routes } from "react-router-dom";
 import Login from "./Components/Pages/Auth/Login";
 import Signup from "./Components/Pages/Auth/Signup";
+import Checkout from "./Components/Pages/Checkout/Checkout";
 import Countries from "./Components/Pages/Countries/Countries";
 import Goods from "./Components/Pages/FeaturesPage/Goods/Goods";
 import Packing from "./Components/Pages/FeaturesPage/Packing/Packing";
@@ -53,6 +54,7 @@ function App() {
         <Route path="/shipnow" element={<ShipNow />} />
         <Route path="/signIn" element={< Login/>} />
         <Route path="/signup" element={<Signup/>} />  
+        <Route path="/checkout" element={<Checkout/>} />  
       
 
       </Routes>
