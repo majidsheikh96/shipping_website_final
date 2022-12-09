@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import FiveStep from './FiveStep';
 import FourStep from './FourStep';
 import OneStep from './OneStep';
 import './ShipNow.css'
@@ -92,14 +93,21 @@ const ShipNow = () => {
                 </>
                }
                  {
-                 counter==5 && <>
+                 counter==4 && <>
                  <FourStep/>
+                </>
+               }
+               {
+                 counter==5 && <>
+                 <FiveStep/>
                 </>
                }
                </div>
                 <div className="flex mx-auto py-8 justify-center gap-4 md:gap-10">
                     {counter >= 2 ? <button onClick={() => setCounter(counter - 1)} type="button" className="pill-button button-hover border-[#844FFA] border-2   text-[#844FFA] font-bold hover:text-white hover:bg-[#844FFA] w-[160px] md:w-[180px] h-[40px] disabled:bg-disabled-purple disabled:cursor-not-allowed disabled:border-transparent rounded-2xl">Back</button> : ""}
-                    <button onClick={() => setCounter(counter + 1)} type="button" id="next-button" className="pill-button button-hover bg-light-purple text-white w-[160px] md:w-[180px] h-[40px] disabled:bg-disabled-purple disabled:cursor-not-allowed disabled:border-transparent rounded-2xl">Next</button>
+                   {
+                      counter==5 ? <div> <button  type="button" id="next-button" className="pill-button button-hover bg-light-purple text-white w-[160px] md:w-[180px] h-[40px] disabled:bg-disabled-purple disabled:cursor-not-allowed disabled:border-transparent rounded-2xl">Go To CheckOut</button> <p className='text-center'>Add to Cart</p><br /></div>:<> <button onClick={() => setCounter(counter + 1)} type="button" id="next-button" className="pill-button button-hover bg-light-purple text-white w-[160px] md:w-[180px] h-[40px] disabled:bg-disabled-purple disabled:cursor-not-allowed disabled:border-transparent rounded-2xl">Next</button></>
+                   }
                 </div>
             </div>
         </div>
