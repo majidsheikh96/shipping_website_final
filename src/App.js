@@ -53,6 +53,8 @@ function App() {
         <Route path="/shipnow" element={<ShipNow />} />
         <Route path="/signIn" element={< Login/>} />
         <Route path="/signup" element={<Signup/>} />  
+      
+
       </Routes>
       <Footer></Footer>
     </div>
