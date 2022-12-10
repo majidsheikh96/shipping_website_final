@@ -14,4 +14,10 @@ module.exports = function(app) {
             changeOrigin: true
         })
     );
+    app.use (
+        proxy("/trackapi",{
+            target:"http://localhost:7000",
+            changeOrigin: true
+        })
+    );
 };
