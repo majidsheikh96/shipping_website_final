@@ -4,30 +4,32 @@ const OneStep = () => {
   return (
     <div>
        <div className="md:w-[80%] mx-auto flex justify-center">
-                    <div className="flex w-full max-w-3xl justify-center text-gray-4 text-sm">
-                        <div className="w-full">
-                            <div className="bg-white w-full md:rounded-xl">
-                                <div className="w-[85%] md:w-[50%] mx-auto pt-6 pb-10 md:pt-8">
-                                    <div className="relative">
-                                        <div className="grid grid-cols-2">
-                                            <p>Full Name</p>
-                                            <p></p>
-                                        </div>
-                                        <div className="mt-1 relative border rounded-xl flex items-center h-10 focus-within:border-light-purple focus:shad-border-focus border-border-dark-gray shadow-border">
-                                            <input type="text" id="senderFirstName" className="rounded-xl w-full h-full focus:outline-none pl-3" placeholder="Jane" value="Mosiur Islam" />
-                                            <hr className="h-2/3 self-center border-l border-border-gray group-focus-within:border-light-purple" />
-                                            <input type="text" id="senderLastName" className="rounded-xl w-full h-full focus:outline-none pl-3" placeholder="Doe" value="" />
-                                        </div>
-                                        <p className="min-h-[1rem] text-xs text-subtext-gray mt-0.5 ml-0.5 mb-5">Person whom JustShip contacts for packing &amp; billing matters</p>
+            <div className="flex w-full max-w-3xl justify-center text-gray-4 text-sm">
+                <div className="w-full">
+                    <div className="bg-white w-full md:rounded-xl">
+                        <div className="w-[85%] md:w-[50%] mx-auto pt-6 pb-10 md:pt-8">
+                            <div className="relative">
+                                <div className="grid grid-cols-2">
+                                    <p>Full Name</p>
+                                    <p></p>
+                                </div>
+                                <div className="mt-1 relative border rounded-xl flex items-center h-10 focus-within:border-light-purple focus:shad-border-focus border-border-dark-gray shadow-border">
+                                    <input type="text" id="senderFirstName" className="rounded-xl w-full h-full focus:outline-none pl-3" placeholder="Jane" defaultValue="master"/>
+
+                                    <hr className="h-2/3 self-center border-l border-border-gray group-focus-within:border-light-purple" />
+
+                                    <input type="text" id="senderLastName" className="rounded-xl w-full h-full focus:outline-none pl-3" placeholder="Doe" defaultValue="sender"/>
+                                </div>
+                                <p className="min-h-[1rem] text-xs text-subtext-gray mt-0.5 ml-0.5 mb-5">Person whom JustShip contacts for packing &amp; billing matters</p>
+                            </div>
+                            <div className="w-full flex flex-col group">
+                                <label for="senderEmail" className="font-normal text-subheading-gray w-max group-focus-within:text-dark-purple">Sender's Email</label>
+                                <div id="senderEmailcontainer" className="mt-1 mb-6 relative border rounded-xl flex items-center h-10 focus-within:border-light-purple focus:shadow-border-focus border-border-dark-gray shadow-border">
+                                    <div className="relative flex items-center h-full z-[2] w-full">
+                                        <input className="focus:outline-none pl-3 w-full h-full rounded-xl pr-8" maxlength="80" id="senderEmail" type="email"  defaultValue="Mail@mail.com" />
                                     </div>
-                                    <div className="w-full flex flex-col group">
-                                        <label for="senderEmail" className="font-normal text-subheading-gray w-max group-focus-within:text-dark-purple">Sender's Email</label>
-                                        <div id="senderEmailcontainer" className="mt-1 mb-6 relative border rounded-xl flex items-center h-10 focus-within:border-light-purple focus:shadow-border-focus border-border-dark-gray shadow-border">
-                                            <div className="relative flex items-center h-full z-[2] w-full">
-                                                <input className="focus:outline-none pl-3 w-full h-full rounded-xl pr-8" maxlength="80" id="senderEmail" type="email" value="" />
-                                            </div>
-                                            <svg
-                                                viewBox="0 0 22 22"
+                                    <svg
+                                        viewBox="0 0 22 22"
                                                 fill="none"
                                                 stroke="currentColor"
                                                 xmlns="http://www.w3.org/2000/svg"
@@ -43,7 +45,6 @@ const OneStep = () => {
                                     <input
                                         type="text"
                                         id="shipping-from"
-                                        disabled=""
                                         className="mt-1 mb-6 relative rounded-xl border border-border-dark-gray flex group w-full h-10 pl-3 disabled:bg-gray-2 disabled:text-subtext-gray"
                                         value="Singapore"
                                     />
@@ -260,7 +261,7 @@ const OneStep = () => {
                                                 <div className="h-full flex items-center min-w-[40px] px-3 justify-center" aria-hidden="true">+65</div>
                                             </div>
                                             <hr className="h-2/3 self-center border-l border-border-gray group-focus-within:border-light-purple" />
-                                            <input type="tel" id="senderMobileNo" className="block w-full pl-3 pr-10 py-2.5 text-gray-4 disabled:bg-gray-2 text-sm rounded-xl focus:outline-none" value="" />
+                                            <input type="tel" id="senderMobileNo" className="block w-full pl-3 pr-10 py-2.5 text-gray-4 disabled:bg-gray-2 text-sm rounded-xl focus:outline-none" defaultValue="1234567890"/>
                                             <p className="min-h-[1rem] text-xs text-error-red absolute top-10"></p>
                                         </div>
                                     </div>
@@ -300,7 +301,7 @@ const OneStep = () => {
                         </div>
                     </div>
                 </div>
-    </div>
+        </div>
   );
 };
 

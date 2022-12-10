@@ -16,6 +16,7 @@ import RateCalculator from "./Components/Pages/PricesPage/RateCalculator/RateCal
 import ShipNow from "./Components/Pages/ShipNow/ShipNow";
 import Footer from "./Components/Shared/Footer/Footer";
 import Navbar from "./Components/Shared/Navbar/Navbar";
+import Track from "./Components/Pages/HomePage/Fedex/Track";
 
 function App() {
 
@@ -55,6 +56,7 @@ function App() {
         <Route path="/signIn" element={< Login/>} />
         <Route path="/signup" element={<Signup/>} />  
         <Route path="/checkout" element={<Checkout/>} />  
+        <Route path="/track" element={<Track/>} />  
       
 
       </Routes>

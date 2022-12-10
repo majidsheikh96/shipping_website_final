@@ -4,8 +4,6 @@ const ThreeStep = () => {
   return (
     <div>
       <div class="bg-background-gray z-0 min-h-screen">
-      <div class="max-w-3xl mx-auto pt-8 pb-6 md:pt-10 md:pb-7"><div class="flex items-center justify-between w-[92%] sm:w-[80%] lg:w-[70%] mx-auto relative"><div class="flex flex-col place-items-center w-max"><div class="flex items-center justify-center rounded-full bg-background-gray w-[32px] h-[32px] md:w-[40px] md:h-[40px] z-[1] border border-dark-purple shadow-border-focus"><div class="flex items-center justify-center rounded-full  w-[26px] h-[26px] md:w-[30px] md:h-[30px] bg-dark-purple"><span class="text-sm md:text-base font-semibold text-white">1</span></div></div><p class="mt-2 text-xs md:text-sm text-light-purple">Sender</p></div><div class="flex flex-col place-items-center w-max"><div class="flex items-center justify-center rounded-full w-[32px] h-[32px] md:w-[40px] md:h-[40px] z-[1]  bg-gray-3"><span class="text-sm md:text-base font-semibold rounded-lg text-white">2</span></div><p class="mt-2 text-xs md:text-sm text-black">Recipient</p></div><div class="flex flex-col place-items-center w-max"><div class="flex items-center justify-center rounded-full  w-[32px] h-[32px] md:w-[40px] md:h-[40px] z-[1]  bg-gray-3"><span class="text-sm md:text-base font-semibold rounded-lg text-white">3</span></div><p class="mt-2 text-xs md:text-sm text-black">Package</p></div><div class="flex flex-col place-items-center w-max"><div class="flex items-center justify-center rounded-full  w-[32px] h-[32px] md:w-[40px] md:h-[40px] z-[1]  bg-gray-3"><span class="text-sm md:text-base font-semibold">4</span></div><p class="mt-2 text-xs md:text-sm text-black">Add-ons</p></div><div class="flex flex-col place-items-center w-max"><div class="flex items-center justify-center rounded-full  w-[32px] h-[32px] md:w-[40px] md:h-[40px] z-[1]  bg-gray-3"><span class="text-sm md:text-base font-semibold">5</span></div><p class="mt-2 text-xs md:text-sm text-black">Review</p></div><hr class="absolute border-gray-3 w-[90%] top-[16px] md:top-[20px] left-0 right-0 mx-auto"/></div></div>
-      <div class="text-center mb-4 md:mb-6"><p id="step-header" class="text-2xl md:text-3xl font-bold">Sender’s Particulars</p><p class="text-sm">(Point of contact for packing and billing)</p></div>
 
       <div class="md:w-[80%] mx-auto flex justify-center">
         <div class="flex w-full max-w-3xl justify-center text-gray-4 text-sm">
@@ -64,7 +62,7 @@ const ThreeStep = () => {
                   <p class="mb-2">Estimate Box Size</p>
                   <div class="relative grid grid-cols-[auto_30px] ">
                     <div class="relative bg-white rounded-xl">
-                      <select id="box-selection-p0" name="box-selection" class="rounded-xl border border-border-gray shadow-border focus:border-light-purple focus:shadow-border-focus focus:outline-none w-full  h-[40px] appearance-none bg-transparent pl-3 pr-6">
+                      <select id="box-selection-p0" name="box-selection" class="rounded-xl border border-border-gray shadow-border focus:border-light-purple focus:shadow-border-focus focus:outline-none w-full  h-[40px] appearance-none bg-transparent pl-3 pr-6" defaultValue={0}>
                         <option value="-1">Own Box</option>
                         <option value="0">Slim 1 kg (23 x 15 x 9)</option>
                         <option value="1">Slim 1.5 kg (26 x 26 x 9)</option>
@@ -85,16 +83,26 @@ const ThreeStep = () => {
                 <p class="md:mb-2">Box Dimensions</p>
                 <div class="grid grid-cols-[auto_30px] items-center mb-4 md:mb-0">
                   <div class="flex items-center justify-between">
-                    <input type="text" inputmode="decimal" id="length-p0" class="form-input w-[65px] md:w-[55px] h-[40px] text-center text-dark-purple font-semibold border-transparent shadow-none" value=""/><span class="text-2.5xl font-light text-subtext-gray mt-0">×</span>
-                    <input type="text" inputmode="decimal" id="width-p0" class="form-input w-[65px] md:w-[55px] h-[40px] text-center text-dark-purple font-semibold border-transparent" value=""/><span class="text-2.5xl font-light text-subtext-gray mt-0">×</span>
-                    <input type="text" inputmode="decimal" id="height-p0" class="form-input w-[65px] md:w-[55px] h-[40px] text-center text-dark-purple font-semibold border-transparent" value=""/>
+
+                    <input type="text" inputmode="decimal" id="length-p0" class="form-input w-[65px] md:w-[55px] h-[40px] text-center text-dark-purple font-semibold border-transparent shadow-none" defaultValue="44"/>
+
+                    <span class="text-2.5xl font-light text-subtext-gray mt-0">×</span>
+
+                    <input type="text" inputmode="decimal" id="width-p0" class="form-input w-[65px] md:w-[55px] h-[40px] text-center text-dark-purple font-semibold border-transparent" defaultValue="39" />
+                    
+                    <span class="text-2.5xl font-light text-subtext-gray mt-0">×</span>
+
+                    <input type="text" inputmode="decimal" id="height-p0" class="form-input w-[65px] md:w-[55px] h-[40px] text-center text-dark-purple font-semibold border-transparent" defaultValue="10"/>
+
                   </div><span class="text-light-purple ml-2 md:ml-1">cm</span>
                 </div>
               </div>
               <div class="flex flex-col mb-6 md:mb-0 ">
                 <p class="md:mb-2">Weight</p>
                 <div class="grid grid-cols-[auto_30px] items-center mb-4 md:mb-0">
-                  <input type="text" inputmode="decimal" id="weight-p0" class="form-input w-full md:w-[55px] h-[40px] text-dark-purple font-semibold text-center border-transparent" value=""/>
+
+                  <input type="text" inputmode="decimal" id="weight-p0" class="form-input w-full md:w-[55px] h-[40px] text-dark-purple font-semibold text-center border-transparent" defaultValue="1"/>
+
                   <span class="text-light-purple ml-2 md:ml-1">kg</span>
                 </div>
               </div>
@@ -116,14 +124,17 @@ const ThreeStep = () => {
             <div class="flex flex-col my-2">
               <div class="rounded-xl group border border-border-dark-gray shadow-border grid grid-cols-[38px_auto_18%_15%_15.5%] gap-x-1.5 relative h-[36px] w-full">
             <label for="quantity" hidden>quantity</label>
-            <input type="text" inputmode="numeric" id="quantity-p0i0" class="focus:outline-none px-1 border-2 border-transparent placeholder:text-placeholder-gray ring-[1.5px] focus:ring-light-purple rounded-xl ring-transparent" placeholder="8" value=""/>
+
+            <input type="text" inputmode="numeric" id="quantity-p0i0" class="focus:outline-none px-1 border-2 border-transparent placeholder:text-placeholder-gray ring-[1.5px] focus:ring-light-purple rounded-xl ring-transparent" placeholder="8" defaultValue="1"/>
 
             <div class="ring-transparent flex items-center relative ring-[1.5px] focus-within:ring-light-purple rounded-xl group">
               <label for="description" hidden>item description</label>
-              <input type="text" id="description-p0i0" class="focus:outline-none placeholder:text-placeholder-gray  px-1 h-full rounded-xl w-full" placeholder="Box of Bengawan Solo Pineapple Tarts" value=""/>
+
+              <input type="text" id="description-p0i0" class="focus:outline-none placeholder:text-placeholder-gray  px-1 h-full rounded-xl w-full" placeholder="Box of Bengawan Solo Pineapple Tarts" defaultValue="Box of dryfood" />
+
             </div>
             <div class="flex flex-wrap items-center rounded-xl  ring-[1.5px] focus-within:ring-light-purple relative ring-transparent">
-              <select id="category-p0i0" class="focus:outline-none appearance-none bg-transparent w-full h-full rounded-xl mx-0.5 text-placeholder-gray">
+              <select id="category-p0i0" class="focus:outline-none appearance-none bg-transparent w-full h-full rounded-xl mx-0.5 text-placeholder-gray" defaultValue="dryfoodsupplements">
             <option value="none" class="disabled:bg-none" disabled="" selected="">Category</option>
             <option value="mobiles" class="text-black">Mobiles</option>
             <option value="tablets" class="text-black">Tablets</option>
@@ -154,12 +165,13 @@ const ThreeStep = () => {
           <label for="total value" hidden>item total value</label>
             <div class=" px-1 flex items-center border-transparent ring-[1.5px] focus-within:ring-light-purple rounded-xl ring-transparent">
               <p class="text-dark-purple">S$</p>
-              <input type="text" inputmode="decimal" id="total-value-p0i0" class="focus:outline-none placeholder:text-placeholder-gray rounded-xl w-full h-full px-1" placeholder="60" value=""/>
+
+              <input type="text" inputmode="decimal" id="total-value-p0i0" class="focus:outline-none placeholder:text-placeholder-gray rounded-xl w-full h-full px-1" placeholder="60" defaultValue="60"/>
 
             </div>
             <label for="total weight" hidden>item total weight</label>
               <div class=" flex items-center border-transparent   justify-end pr-2 ring-[1.5px] focus-within:ring-light-purple rounded-xl ring-transparent">
-                <input type="text" inputmode="decimal" id="total-weight-p0i0" class="focus:outline-none text-right placeholder:text-placeholder-gray rounded-xl w-[60%] h-full px-1 " placeholder="4.0" value=""/>
+                <input type="text" inputmode="decimal" id="total-weight-p0i0" class="focus:outline-none text-right placeholder:text-placeholder-gray rounded-xl w-[60%] h-full px-1 " placeholder="4.0" defaultValue="1.0"/>
                 <p class="text-dark-purple">kg</p>
               </div>
               </div>
@@ -180,7 +192,7 @@ const ThreeStep = () => {
           <hr class="border-border-gray border-t my-8"/>
           <div class="grid grid-cols-[78%_22%] items-center font-semibold px-8 pb-8">
             <p class="text-dark-purple ">Total declared <br class="md:hidden"/> value for all items</p>
-            <p class="md:text-right text-dark-purple md:mr-5">$0.00</p>
+            <p class="md:text-right text-dark-purple md:mr-5">$60.00</p>
           </div>
         </div>
       </div>
