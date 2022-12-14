@@ -1,13 +1,13 @@
 import React from 'react';
 
-import pic1 from '../../../../Assect/pic1.png'
-import pic2 from '../../../../Assect/pic2.png'
-import pic3 from '../../../../Assect/pic3.png'
-import pic4 from '../../../../Assect/pic4.png'
-import pic5 from '../../../../Assect/pic5.png'
-import pic6 from '../../../../Assect/pic6.png'
-import pic7 from '../../../../Assect/pic7.png'
-import pic8 from '../../../../Assect/pic8.png'
+import pic1 from '../../../../Assect/Precision Pick Up.png'
+import pic2 from '../../../../Assect/Custom Packing.png'
+import pic3 from '../../../../Assect/Expert Review.png'
+import pic4 from '../../../../Assect/Tax Ray Vision.png'
+import pic5 from '../../../../Assect/Ask Me Anything.png'
+import pic6 from '../../../../Assect/Green Shipping.png'
+import pic7 from '../../../../Assect/Keep Calm Insurance.png'
+import pic8 from '../../../../Assect/Real Time Parcel Tracking.png'
 
 const Card = () => {
     return (

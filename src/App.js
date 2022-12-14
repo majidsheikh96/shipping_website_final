@@ -17,6 +17,8 @@ import ShipNow from "./Components/Pages/ShipNow/ShipNow";
 import Footer from "./Components/Shared/Footer/Footer";
 import Navbar from "./Components/Shared/Navbar/Navbar";
 import Track from "./Components/Pages/HomePage/Fedex/Track";
+import Dashboard from "./Components/Pages/Dashboard/Dashboard";
+import AddBox from "./Components/Pages/PricesPage/RateCalculator/AddBox";
 
 function App() {
 
@@ -47,7 +49,8 @@ function App() {
         <Route path="/ourPrices" element={<OurPrice />} />
         <Route path="/rateCalculator" element={<RateCalculator />} />
         <Route path="/faq" element={<FAQ />} />
-        <Route path="/dashboard" element={<MyProfile />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/profile" element={<MyProfile />} />
         <Route path="/packing" element={<Packing />} />
         <Route path="/taxray" element={<TaxRay />} />
         <Route path="/dangerousgoods" element={<Goods />} />
@@ -57,6 +60,8 @@ function App() {
         <Route path="/signup" element={<Signup/>} />  
         <Route path="/checkout" element={<Checkout/>} />  
         <Route path="/track" element={<Track/>} />  
+      <Route path="/addbox" element={<AddBox/>} />
+        <Route path="/get-a-quote" element={<RateCalculator/>} />  
       
 
       </Routes>

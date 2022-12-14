@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useForm } from 'react-hook-form';
 import FiveStep from './FiveStep';
 import FourStep from './FourStep';
 import OneStep from './OneStep';
@@ -10,7 +11,7 @@ const ShipNow = () => {
     if(counter>5){
         return setCounter(1)
     }
-    console.log(counter);
+   
     
     return (
         <div>
