@@ -1,13 +1,9 @@
 import React, { useState } from 'react'
 import { FormProvider, useForm } from 'react-hook-form';
-import FiveStep from './FiveStep';
-import FourStep from './FourStep';
-import OneStep from './OneStep';
 import RecipientForm from './RecipientForm';
 import SenderForm from './SenderForm';
 import './ShipNow.css'
 import PackageForm from './PackageForm/PackageForm';
-import TwoStep from './TwoStep';
 import { useDispatch, useSelector } from "react-redux";
 import { setForm } from "../../../store/formSlice";
 import Addons from './Addons';
@@ -18,12 +14,8 @@ const ShipNow = () => {
     const [formStep, setFormStep] = useState(4);
     const form = useSelector(state => state.form);
     const methods = useForm({ defaultValues: form, mode: 'all' });
-    const { watch, setValue, trigger, formState: { isValid }, reset } = methods;
+    const { trigger, formState: { isValid } } = methods;
     const dispatch = useDispatch();
-    const [counter, setCounter] = useState(1)
-    // if (counter > 5) {
-    //     return setCounter(1)
-    // }
 
     const handleBack = () => {
         setFormStep(cur => cur - 1);

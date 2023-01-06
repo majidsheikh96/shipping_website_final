@@ -659,7 +659,7 @@ const RecipientForm = () => {
                     fill="none"
                     stroke="currentColor"
                     xmlns="http://www.w3.org/2000/svg"
-                    class="w-[18px] inline-block absolute right-0 mr-2 w-[18px] group-focus-within:invisible stroke-dark-purple z-[2]"
+                    class="inline-block absolute right-0 mr-2 w-[18px] group-focus-within:invisible stroke-dark-purple z-[2]"
                   >
                     <circle
                       r="10"
@@ -748,9 +748,7 @@ const RecipientForm = () => {
                         fill="none"
                         stroke="currentColor"
                         xmlns="http://www.w3.org/2000/svg"
-                        class="w-[18px] inline-block 
-                absolute right-0 mr-2
-              w-[18px] group-focus-within:invisible stroke-dark-purple z-[2]"
+                        class="w-[18px] inline-block absolute right-0 mr-2 group-focus-within:invisible stroke-dark-purple z-[2]"
                       >
                         <circle
                           r="10"

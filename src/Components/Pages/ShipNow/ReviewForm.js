@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 const ReviewForm = () => {
 
-  const { register, formState: { errors }, setValue, clearErrors, getValues, watch } = useFormContext();
+  const { watch } = useFormContext();
 
   // const addons = watch("addons");
   const packages = watch("packages");
