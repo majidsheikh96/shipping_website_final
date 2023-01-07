@@ -3,7 +3,7 @@ import { useFormContext } from 'react-hook-form';
 
 const SenderForm = () => {
 
-    const { register, watch, formState: { errors }, setValue, getValues, clearErrors } = useFormContext();
+    const { register, watch, formState: { errors }, setValue, clearErrors } = useFormContext();
     const [purpose, setPurpose] = useState(null);
 
     useEffect(() => {
@@ -27,12 +27,12 @@ const SenderForm = () => {
                             <p>Full Name</p>
                             <p></p>
                         </div>
-                        <div className={`mt-1 relative border rounded-xl flex items-center h-10 focus-within:border-light-purple focus:shadow-border-focus  border-border-dark-gray shadow-border ${errors.sender?.firstName && 'border-rose-500'}`}>
-                            <input type="text" id="senderFirstName" className="rounded-xl w-full h-full focus:outline-none pl-3" placeholder="Jane" {...register("sender.firstName", { required: 'Required' })} />
+                        <div className={`mt-1 relative border rounded-xl flex items-center h-10 focus-within:border-light-purple focus:shadow-border-focus  border-border-dark-gray shadow-border ${errors.sender?.first_name && 'border-rose-500'}`}>
+                            <input type="text" id="senderFirstName" className="rounded-xl w-full h-full focus:outline-none pl-3" placeholder="Jane" {...register("sender.first_name", { required: 'Required' })} />
 
                             <hr className="h-2/3 self-center border-l border-border-gray group-focus-within:border-light-purple" />
 
-                            <input type="text" id="senderLastName" className="rounded-xl w-full h-full focus:outline-none pl-3" placeholder="Doe" {...register("sender.lastName")} />
+                            <input type="text" id="senderLastName" className="rounded-xl w-full h-full focus:outline-none pl-3" placeholder="Doe" {...register("sender.last_name")} />
                         </div>
                         <p className="min-h-[1rem] text-xs text-subtext-gray mt-0.5 ml-0.5 mb-5">Person whom JustShip contacts for packing &amp; billing matters</p>
                     </div>
@@ -60,8 +60,8 @@ const SenderForm = () => {
                         type="text"
                         id="shipping-from"
                         className="mt-1 mb-6 relative rounded-xl border border-border-dark-gray flex group w-full h-10 pl-3 disabled:bg-gray-2 disabled:text-subtext-gray"
-                        value={getValues("sender.shippingForm")}
-                        {...register("sender.shippingForm")}
+                        // value={getValues("sender.shipping_from")}
+                        {...register("sender.shipping_from")}
                     />
                     <div className="group">
                         <label className="block font-normal text-subheading-gray text-sm group-focus-within:text-dark-purple" for="senderMobileNo">Sender's Mobile</label>

@@ -11,7 +11,7 @@ import ReviewForm from './ReviewForm';
 
 const ShipNow = () => {
 
-    const [formStep, setFormStep] = useState(4);
+    const [formStep, setFormStep] = useState(1);
     const form = useSelector(state => state.form);
     const methods = useForm({ defaultValues: form, mode: 'all' });
     const { trigger, formState: { isValid } } = methods;
@@ -20,16 +20,17 @@ const ShipNow = () => {
     const handleBack = () => {
         setFormStep(cur => cur - 1);
     }
-
+    
     const handleNext = () => {
-        if (!isValid) {
-            return trigger();
-        } else {
+        if (isValid) {
             setFormStep(formStep + 1);
+        } else {
+            trigger();
         }
     }
 
     const onSubmit = data => {
+        console.log(data);
         dispatch(setForm(data))
     };
 

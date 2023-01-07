@@ -31,7 +31,10 @@ const formSlice = createSlice({
     },
     reducers: {
         setForm: (state, action) => {
-            state = action.payload;
+            return {
+                ...state,
+                ...action.payload
+              }
         },
         updateInsurance: (state, action) => {
             state.addons.insurance = action.payload

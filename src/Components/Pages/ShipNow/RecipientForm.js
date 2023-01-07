@@ -685,7 +685,7 @@ const RecipientForm = () => {
                 </label>
                 <div
                   id="recipientPostalCodecontainer"
-                  className={`mt-1 mb-6 relative border rounded-xl flex items-center h-10 focus-within:border-light-purple focus:shadow-border-focus border-border-dark-gray shadow-border ${errors.recipient?.postalCode && 'border-rose-500'}`}
+                  className={`mt-1 mb-6 relative border rounded-xl flex items-center h-10 focus-within:border-light-purple focus:shadow-border-focus border-border-dark-gray shadow-border ${errors.recipient?.postal_code && 'border-rose-500'}`}
                 >
                   <div class="relative flex items-center h-full z-[2] w-full">
                     <input
@@ -693,11 +693,11 @@ const RecipientForm = () => {
                       maxLength="80"
                       id="recipientPostalCode"
                       type="text"
-                      {...register("recipient.postalCode", { required: 'Required', maxLength: 80 })}
+                      {...register("recipient.postal_code", { required: 'Required', maxLength: 80 })}
                     />
                   </div>
                   {
-                    watch("recipient.postalCode") && <svg
+                    watch("recipient.postal_code") && <svg
                       viewBox="0 0 22 22"
                       fill="none"
                       stroke="currentColor"
