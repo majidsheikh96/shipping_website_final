@@ -12,10 +12,11 @@ const ReviewForm = () => {
   const { addons } = useSelector(state => state.form);
   const { insurance, taxes_and_duties } = addons;
   console.log(shipment);
+  const total = shipment.total_cost;
   return (
     <div className="bg-white text-center w-full md:rounded-xl py-8">
-      <h2 className="text-base underline underline-offset-4">Shipment for 
-        <span className="font-bold">{shipment.recipient.name}</span>
+      <h2 className="text-base underline underline-offset-4">Shipment for
+        <span className="font-bold"> {shipment.recipient.name}</span>
       </h2>
       <p className="mt-4">Destination Country:</p>
       <p className="font-bold text-dark-purple">{shipment.recipient.country}</p>
@@ -42,7 +43,7 @@ const ReviewForm = () => {
         <p className="font-bold text-dark-purple">SGD {' '}
           <span id="total">
             {
-              Number(insurance.value) + Number(taxes_and_duties.value)
+              Number(insurance.value) + Number(taxes_and_duties.value) + Number(total)
             }
           </span>
         </p>
@@ -57,7 +58,7 @@ const ReviewForm = () => {
             <p className=" text-[#6E41E2] whitespace-nowrap">SGD {" "}
               <span id="total-shipping-cost">
                 {
-                  Number(insurance.value) + Number(taxes_and_duties.value)
+                  Number(insurance.value) + Number(taxes_and_duties.value) + Number(total)
                 }
               </span></p>
           </div>

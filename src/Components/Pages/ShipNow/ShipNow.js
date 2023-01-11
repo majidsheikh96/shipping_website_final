@@ -8,9 +8,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { setForm } from "../../../store/formSlice";
 import Addons from './Addons';
 import ReviewForm from './ReviewForm';
+import { useNavigate } from "react-router-dom";
 
 const ShipNow = () => {
-
+    const navigate = useNavigate();
     const [formStep, setFormStep] = useState(1);
     const form = useSelector(state => state.form);
     const methods = useForm({ defaultValues: form, mode: 'all' });
@@ -30,8 +31,8 @@ const ShipNow = () => {
     }
 
     const onSubmit = data => {
-        console.log(data);
-        dispatch(setForm(data))
+        dispatch(setForm(data));
+        navigate("/checkout");
     };
 
 
