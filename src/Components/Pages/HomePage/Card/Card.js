@@ -117,7 +117,10 @@ const Card = () => {
                                     <div
                                         className="absolute hidden sm:flex flex-col justify-center w-full h-full inset-0 text-center text-dark-purple text-sm lg:text-base lg:leading-snug font-medium opacity-0 group-hover:opacity-100 transition duration-200 ease-in-out"
                                     >
-                                        <p>No more queuing at the post office! Get your items picked up from your doorstep.</p>
+                                        <p>Package will
+be pickup and
+ship out the
+same day</p>
                                     </div>
                                 </div>
                                 <div className="mb-2">
